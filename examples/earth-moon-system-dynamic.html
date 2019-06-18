@@ -36,7 +36,7 @@
       //Earth
       var earthGeometry = new THREE.SphereGeometry(10, 50, 50);
       var earthMaterial = new THREE.MeshPhongMaterial({
-        map: new THREE.ImageUtils.loadTexture("/images/earth_3.jpg"),
+        map: new THREE.ImageUtils.loadTexture("../images/earth_texture_2.jpg"),
         color: 0xf2f2f2,
         specular: 0xbbbbbb,
         shininess: 2
@@ -47,7 +47,7 @@
       //Clouds
       var cloudGeometry = new THREE.SphereGeometry(10.3,  50, 50);
       var cloudMaterial = new THREE.MeshPhongMaterial({
-        map: new THREE.ImageUtils.loadTexture("/images/clouds_2.jpg"),
+        map: new THREE.ImageUtils.loadTexture("../images/clouds_2.jpg"),
         transparent: true,
         opacity: 0.1
       });
@@ -57,7 +57,7 @@
       //Stars
       var starGeometry = new THREE.SphereGeometry(1000, 50, 50);
       var starMaterial = new THREE.MeshPhongMaterial({
-        map: new THREE.ImageUtils.loadTexture("/images/galaxy_starfield.png"),
+        map: new THREE.ImageUtils.loadTexture("../images/galaxy_starfield.png"),
         side: THREE.DoubleSide,
         shininess: 0
       });
@@ -67,7 +67,7 @@
       //Moon 
       var moonGeometry = new THREE.SphereGeometry(3.5, 50,50);
       var moonMaterial = new THREE.MeshPhongMaterial({
-        map: THREE.ImageUtils.loadTexture("/images/moon_texture.jpg")
+        map: THREE.ImageUtils.loadTexture("../images/moon_texture.jpg")
       });
       var moon = new THREE.Mesh(moonGeometry, moonMaterial);
       moon.position.set(35,0,0);

@@ -1,3 +1,6 @@
+
+[https://mattloftus.github.io/2016/01/23/threejs-p1/](https://mattloftus.github.io/2016/01/23/threejs-p1/)
+
 This repository is a collection of recent experiments I've been working on in three.js.
 
 Three.js is a JavaScript library built on top of the WebGL graphics language.  WebGL is a low level, verbose language used to create graphics in the browser that can be both very performant and very hard to use.  Three.js greatly reduces the amount of boilerplate code you have to write to build rich 3D graphics, and wraps common operations into intuitive constructor functions.  If you're interested in learning three.js, I recently completed two new tutorials on getting started with the three.js library.  You can find them at [loftus.xyz](http://loftus.xyz)

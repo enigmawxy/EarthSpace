@@ -8,7 +8,7 @@ var SolarSystem = function(data) {
 
 SolarSystem.prototype.getDistance = function (A, B) {
   return Math.sqrt(Math.pow(A[0] - B[0], 2) + Math.pow(A[1] - B[1], 2) + Math.pow(A[2] - B[2], 2));
-}
+};
 
 SolarSystem.prototype.render3D = function() {
 
@@ -151,11 +151,11 @@ SolarSystem.prototype.render3D = function() {
 
     renderer.render(scene, camera);
     requestAnimationFrame( render );
-  }
+  };
   render();
 
 
-}
+};
 
 
 var solarSystem = new SolarSystem(planets);
