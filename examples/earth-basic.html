@@ -26,12 +26,12 @@
       /////  LIGHTS  ///////
       //////////////////////
 
-      var light = new THREE.AmbientLight( 0x888888 );
-      scene.add( light );
+      var light1 = new THREE.AmbientLight( 0x888888 );
+      scene.add(light1);
 
-      var light = new THREE.DirectionalLight( 0xfdfcf0, 1 );
-      light.position.set(10,10,10);
-      scene.add( light );
+      var light2 = new THREE.DirectionalLight( 0xfdfcf0, 1 );
+      light2.position.set(10,10,10);
+      scene.add(light2);
 
       //////////////////////
       /////  OBJECTS  //////
@@ -44,6 +44,9 @@
         specular: 0x333333,
         shininess: 25
       });
+      // var earthMaterial = new THREE.MeshPhongMaterial({
+      //     color: 0xaaaaaa
+      // });
       var earth = new THREE.Mesh(earthGeometry, earthMaterial);
       scene.add(earth);
 
