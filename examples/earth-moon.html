@@ -102,30 +102,30 @@
 
       //Render loop
       var render = function() {
-          // earth.rotation.y += .0005;
-          // clouds.rotation.y += .00025;
           earth.rotation.y += .0009;
           clouds.rotation.y += .00005;
 
-          //Update the camera position
+          //Moon orbit
+         
+          theta += dTheta;
+          moon.position.x = r * Math.cos(theta);
+          moon.position.z = r * Math.sin(theta);
+          
+          //Flyby
+          if (camera.position.z < 0) {
+            dx *= -1;
+          }
           camera.position.x += dx;
           camera.position.y += dy;
           camera.position.z += dz;
 
+          camera.lookAt(earthVec);
+          
           //Flyby reset
           if (camera.position.z < -100) {
               camera.position.set(0,35,70);
           }
-
-          //Point the camera towards the earth
-          camera.lookAt(earthVec);
-
-          //Increment theta, and update moon x and y
-          //position based off new theta value
-          theta += dTheta;
-          moon.position.x = r * Math.cos(theta);
-          moon.position.z = r * Math.sin(theta);
-
+		  
           renderer.render(scene, camera);
           requestAnimationFrame(render);
       };
