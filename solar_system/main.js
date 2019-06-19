@@ -1,7 +1,7 @@
 //Create a function that will construct a solar
 //system with three.js using an input data set
 var SolarSystem = function(data) {
-  this.planet_data = data
+  this.planet_data = data;
   this.tScale = 1000000;
   this.eScale = 1;
 };
@@ -14,7 +14,7 @@ SolarSystem.prototype.render3D = function() {
 
   //Camera, scene, and renderer
   var scene = new THREE.Scene();
-  var camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 1, 2000);
+  var camera = new THREE.PerspectiveCamera(30, window.innerWidth/window.innerHeight, 1, 2000);
   scene.add(camera);
   camera.position.set(0,100,500);
 
@@ -59,7 +59,7 @@ SolarSystem.prototype.render3D = function() {
   // Scale of the earth, use to get screen coordinates
   // Time scale, and days to seconds conversion
   var eScale = (1 / 510) * 0.00002;
-  var secInDay = 87600
+  var secInDay = 87600;
   var ctx = this;
 
   //Initialize and keep track of current angle of planets
@@ -121,7 +121,7 @@ SolarSystem.prototype.render3D = function() {
     scene.add( planetMesh );
     planetObjects[planet.name] = planetMesh;
   });
-  console.log(planetObjects["earth"].position);
+  // console.log(planetObjects["earth"].position);
 
   var t1 = Date.now() / 1000;
 
@@ -150,7 +150,8 @@ SolarSystem.prototype.render3D = function() {
     });
 
     renderer.render(scene, camera);
-    requestAnimationFrame( render );
+
+    requestAnimationFrame(render);
   };
   render();
 
