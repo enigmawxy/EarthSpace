@@ -49,7 +49,7 @@ SolarSystem.prototype.render3D = function() {
   //Adding a starfield
   var starGeometry = new THREE.SphereGeometry(window.innerHeight, 100, 100);
   var starMaterial = new THREE.MeshPhongMaterial({
-    map: new THREE.ImageUtils.loadTexture("../images/galaxy_starfield.png"),
+    map: new THREE.ImageUtils.loadTexture("../images/nature-sky-night-star.jpg"),
     side: THREE.DoubleSide,
     shininess: 5
   });
