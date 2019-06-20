@@ -82,7 +82,8 @@ SolarSystem.prototype.render3D = function() {
   planets.forEach(function (planet) {
     
     var targetMaterial = new THREE.LineDashedMaterial({
-        color: 0xfffff,
+        color: 0xF8F8FF,
+        // color: 0xfffff,
         transparent: true, 
         opacity: .4, 
         dashSize: 5,
