@@ -6,6 +6,8 @@ var camera;
 var renderer;
 
 function init() {
+    var stats = initStats();
+
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera( 55, window.innerWidth/window.innerHeight, 0.1, 2000 );
     renderer = new THREE.WebGLRenderer({antialias: true});
@@ -112,6 +114,7 @@ function init() {
     var lightness = 0;
     //Render loop
     var render = function() {
+        stats.update();
         earth.rotation.y += .0009;
         clouds.rotation.y += .00005;
 
@@ -162,6 +165,3 @@ function onResize() {
 init();
 
 window.addEventListener('resize', onResize, false);
-
-
-
