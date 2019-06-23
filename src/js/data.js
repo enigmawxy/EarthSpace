@@ -1,3 +1,4 @@
+// 依次是：水星 金星 地球 火星 木星 土星 天王星 海王星 冥王星
 var planet_data = [
   {
     "name" : "mercury",

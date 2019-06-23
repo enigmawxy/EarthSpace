@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0110d0c1-ade0-4547-9e58-311877cc299f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/js/data.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/textures/earth_texture_1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solar_system/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/solar_system/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/earth-moon.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/earth-moon.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/data.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/textures/earth_texture.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/textures/earth_texture.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/textures/sun_texture.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/textures/sun_texture.jpg" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="264" lean-forward="true" selection-start-line="264" selection-end-line="264" />
+            <state relative-caret-position="953">
+              <caret line="142" column="13" lean-forward="true" selection-start-line="142" selection-start-column="13" selection-end-line="142" selection-end-column="13" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -35,37 +30,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/gas-giant-with-rings.html">
+        <entry file="file://$PROJECT_DIR$/src/js/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="67" column="13" selection-start-line="59" selection-start-column="6" selection-end-line="69" selection-end-column="7" />
+            <state relative-caret-position="249">
+              <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/solar_system/data.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="38" column="21" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/earth-moon.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+            <state relative-caret-position="529">
+              <caret line="66" column="23" lean-forward="true" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -126,9 +103,9 @@
         <option value="$PROJECT_DIR$/src/styles/main.css" />
         <option value="$PROJECT_DIR$/src/js/utils.js" />
         <option value="$PROJECT_DIR$/src/earth-moon.html" />
-        <option value="$PROJECT_DIR$/src/js/data.js" />
         <option value="$PROJECT_DIR$/solar_system/main.js" />
         <option value="$PROJECT_DIR$/src/js/main.js" />
+        <option value="$PROJECT_DIR$/src/js/data.js" />
       </list>
     </option>
   </component>
@@ -139,8 +116,8 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="283" />
-    <option name="y" value="32" />
+    <option name="x" value="220" />
+    <option name="y" value="39" />
     <option name="width" value="1424" />
     <option name="height" value="937" />
   </component>
@@ -159,16 +136,6 @@
             <path>
               <item name="EarthSpace" type="b2602c69:ProjectViewProjectNode" />
               <item name="EarthSpace" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EarthSpace" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EarthSpace" type="462c0819:PsiDirectoryNode" />
-              <item name="solar_system" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EarthSpace" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EarthSpace" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -176,11 +143,6 @@
               <item name="EarthSpace" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="EarthSpace" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EarthSpace" type="462c0819:PsiDirectoryNode" />
-              <item name="textures" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -263,7 +225,8 @@
       <workItem from="1561177299836" duration="10169000" />
       <workItem from="1561198836829" duration="22000" />
       <workItem from="1561198928685" duration="3283000" />
-      <workItem from="1561247598957" duration="4028000" />
+      <workItem from="1561247598957" duration="4377000" />
+      <workItem from="1561257906777" duration="1030000" />
     </task>
     <task id="LOCAL-00001" summary="refined">
       <created>1560911050508</created>
@@ -276,7 +239,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70856000" />
+    <option name="totallyTimeSpent" value="72235000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -288,10 +251,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="477" y="87" width="1424" height="937" extended-state="0" />
-    <editor active="true" />
+    <frame x="220" y="39" width="1424" height="937" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20217392" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20507246" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -303,7 +265,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32876712" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32869786" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.1107056" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.25547445" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -454,13 +416,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/styles/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -523,13 +478,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="38" column="21" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/gas-giant-with-rings.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -537,13 +485,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="264" lean-forward="true" selection-start-line="264" selection-end-line="264" />
+        <state relative-caret-position="953">
+          <caret line="142" column="13" lean-forward="true" selection-start-line="142" selection-start-column="13" selection-end-line="142" selection-end-column="13" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="66" column="23" lean-forward="true" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
         </state>
       </provider>
     </entry>

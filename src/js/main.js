@@ -125,7 +125,7 @@ function generateSolarSystem() {
             scene.add(moon);
         }
 
-        if (planet.name === "jupiter") {
+        if (planet.name === "saturn") {
             // Step 3: Add rings for the Moon
             rings =[];
             for (var i = 0; i < 10; i++) {
@@ -172,7 +172,7 @@ function renderSolar() {
             moon.position.z = planetObjects[planet.name].position.z + dEm * Math.sin(theta);
             moon.position.y = planetObjects[planet.name].position.y - dEm * Math.cos(theta);
         }
-        if (planet.name === "jupiter") {
+        if (planet.name === "saturn") {
             rings.forEach((ring)=>{
                 ring.position.copy(planetObjects[planet.name].position)
             });
