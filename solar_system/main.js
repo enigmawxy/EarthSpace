@@ -49,9 +49,9 @@ SolarSystem.prototype.render3D = function() {
   //Adding a starfield
   var starGeometry = new THREE.SphereGeometry(window.innerHeight, 100, 100);
   var starMaterial = new THREE.MeshPhongMaterial({
-    map: new THREE.ImageUtils.loadTexture("../images/nature-sky-night-star.jpg"),
+    map: new THREE.ImageUtils.loadTexture("../images/galaxy_starfield.png"),
     side: THREE.DoubleSide,
-    shininess: 5
+    shininess: 0
   });
   var starField = new THREE.Mesh(starGeometry, starMaterial);
   scene.add(starField);
@@ -139,7 +139,8 @@ SolarSystem.prototype.render3D = function() {
       var phi = planet.inclination * Math.sin(planet.theta);
 
       if (planet.name === "earth") {
-        console.log(phi, planet.theta);
+        console.log(planet.distance_KM, planet.theta, ctx.eScale);
+        // console.log(planetObjects[planet.name].position);
       }
 
       //Determine x,y, and z coordinates of planets based off theta + phi
