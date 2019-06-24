@@ -19,7 +19,7 @@ var dz = -.05;
 var lightness = 0;
 var stats;
 var eScale = 1;//(1 / 510) * 0.00002;
-var tScale = 1000000;
+var tScale = 1;
 var secInDay = 87600;
 var planetObjects = {};
 var planets = [];
@@ -38,17 +38,39 @@ function init() {
     var orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
 
     // LIGHTS
-    var light1 = new THREE.AmbientLight( 0x888888 );
-    scene.add(light1);
-    var light2 = new THREE.DirectionalLight( 0xfdfcf0, 1 );
-    light2.position.set(50,50,50);
-    scene.add(light2);
+    var ambiColor = 0x888888;
+    var ambientLight = new THREE.AmbientLight( ambiColor );
+    scene.add(ambientLight);
+    var directionalLight = new THREE.DirectionalLight( 0xfdfcf0, 1 );
+    directionalLight.position.set(50,50,50);
+    scene.add(directionalLight);
 
+    // Add GUI control
+    var controls = new function () {
+        this.rotationSpeed = 1;
+        this.ambientColor = ambiColor;
+        this.disableDirectionlight = false;
+    };
+
+    var gui = new dat.GUI();
+    gui.add(controls, 'rotationSpeed', 0, 10).onChange(function (e) {
+        tScale = controls.rotationSpeed;
+        console.log(tScale);
+    });
+    gui.addColor(controls, 'ambientColor').onChange(function (e) {
+        ambientLight.color = new THREE.Color(e);
+    });
+    gui.add(controls, 'disableDirectionlight').onChange(function (e) {
+        directionalLight.visible = !e;
+    });
+
+    // Generate Objects
     generateObjects();
     generateSolarSystem();
 
     t1 = Date.now() / 1000;
 
+    // Rendering the scene
     render();
 }
 
@@ -65,7 +87,7 @@ function generateSolarSystem() {
             "dTheta" : (2 * Math.PI) / (planet.period_days * secInDay),
             "diameter" : planet.diameter * lScale * 1000,
             "distance_KM" : planet.distance_KM * lScale,
-            "period" : planet.period * this.tScale,
+            "period" : planet.period * this.tScale*1000000,
             "inclination" : planet.inclination * (Math.PI / 180),
             "rotation" : (2 * Math.PI) / (planet.rotation_days * secInDay)
         });
@@ -150,7 +172,7 @@ function generateSolarSystem() {
 function renderSolar() {
     // get current time and time differnce
     var t2 = Date.now() / 1000;
-    var dT = (t2 - t1) * tScale;
+    var dT = (t2 - t1) * tScale*1000000;
     t1 = t2;
 
     planets.forEach(function (planet) {
