@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Quadratic Bezier Curve
+    </title>
+</head>
+
+<body>
+    <h1>Quadratic Bezier Curve</h1>
+
+    <canvas id="CanvasOfGeeks" width="400" height="200"
+            style="border:solid 4px green">
+    </canvas>
+    <script>
+        var c = document.getElementById("CanvasOfGeeks");
+        var context = c.getContext("2d");
+
+        var start_pnt_X = 50;
+        var start_pnt_Y = 150;
+        var cntrl_pnt_X = 200;
+        var cntrl_pnt_Y = 30;
+        var end_pnt_X = 350;
+        var end_pnt_Y = 150;
+
+        /* Start new path */
+        context.beginPath();
+        context.lineWidth=3;
+        context.strokeText( ".", cntrl_pnt_X, cntrl_pnt_Y);
+
+        /* Starting point of the curve */
+        context.moveTo(start_pnt_X, start_pnt_Y);
+
+        context.quadraticCurveTo(cntrl_pnt_X,
+            cntrl_pnt_Y, end_pnt_X, end_pnt_Y);
+
+        /* drawing line on the canvas */
+        context.stroke();
+    </script>
+</body>
+</html>

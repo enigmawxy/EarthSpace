@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Drawing a fish using Bezier Curve
+    </title>
+</head>
+
+<body>
+<canvas id="CanvasOfGeeks" width="400" height="200"
+        style="border:solid 4px green">
+</canvas>
+    <script>
+        var c = document.getElementById("CanvasOfGeeks");
+        var context = c.getContext("2d");
+
+        /* Start a new Path */
+        context.beginPath();
+        context.lineWidth=3;
+
+        /* Upper curve of the fish, from mouth to tail */
+        context.moveTo(60, 120);
+        context.bezierCurveTo(90, 30, 200, 130, 310, 55);
+
+        /* Lower curve of the fish, from mouth to tail */
+        context.moveTo(60, 120);
+        context.bezierCurveTo(90, 170, 200, 110, 310, 160);
+
+        /* Upper half of tail */
+        context.moveTo(310, 55);
+        context.quadraticCurveTo(320, 80, 280, 110);
+
+        /* lower half of tail */
+        context.moveTo(310, 160);
+        context.quadraticCurveTo(320, 120, 280, 110);
+
+        /* Eye of the fish */
+        context.moveTo(100, 100);
+        context.arc(100, 100, 5, 0, 2*Math.PI);
+
+        /* Mouth of the fish */
+        context.moveTo(60, 120);
+        context.lineTo(80, 120);
+        context.stroke();
+    </script>
+</body>
+
+</html>

@@ -8,5 +8,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="hammer" level="application" />
+    <orderEntry type="library" name="d3-geo.v1" level="application" />
+    <orderEntry type="library" name="d3-array.v1" level="application" />
   </component>
 </module>
