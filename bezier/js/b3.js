@@ -43,7 +43,7 @@ window.onload = function() {
 		context.stroke();
 
 		utils.cubicBezier(p0, p1, p2, p3, t, pFinal);
-		drawPoint(pFinal, 'blue', '', 10);
+		utils.drawPoint(context, pFinal, 'blue', '', 10);
 
 		context.fillStyle='black';
 
