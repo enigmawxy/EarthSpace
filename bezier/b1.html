@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--http://www.softwhy.com/article-8733-1.html-->
 <html>
 <head>
     <meta charset="UTF-8">
@@ -9,7 +10,7 @@
             background: black;
         }
         #flower {
-            border: 1px solid red;
+            border: 1px dashed red;
             width: 500px;
             height: 500px;
             position: relative;
@@ -52,14 +53,15 @@
                 ctx.moveTo(this.data.start.x, this.data.start.y);
                 // ----曲线坐标（x, y）--结束坐标（x, y）
                 ctx.quadraticCurveTo(this.data.curve.x, this.data.curve.y, this.data.end.x, this.data.end.y);
+
                 /* 轴对称 --- 只针对曲线左到右 */
                 ctx.moveTo(this.data.start.x, this.data.start.y);
                 ctx.quadraticCurveTo(this.data.start.x + this.data.curve.x, this.data.curve.y, this.data.end.x, this.data.end.y);
                 ctx.fillStyle = this.color;
-                ctx.strokeStyle = this.color;
-                ctx.globalAlpha = 0.1;
+                // ctx.strokeStyle = this.color;
+                ctx.globalAlpha = 0.5;
                 ctx.fill();
-                ctx.stroke()
+                // ctx.stroke()
             },
             // 动画
             handle: function () {
