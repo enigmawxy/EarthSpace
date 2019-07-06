@@ -118,17 +118,17 @@ var utils = {
 		p1 = points[points.length - 1];
 		context.quadraticCurveTo(p0.x, p0.y, p1.x, p1.y);
 	},
-	drawPoint: function(context, p, color, tag, radius) {
+	drawPoint: function(context, p, color, tag) {
 		context.beginPath();
-		if (color.length > 1) {
-			context.fillStyle=color;
+		if (p.color.length > 1) {
+			context.fillStyle=p.color;
 		} else {
 			context.fillStyle='black';
 		}
-		if (tag.length >0) {
-			context.fillText(tag, p.x + 8, p.y);
+		if (p.tag.length >0) {
+			context.fillText(p.tag, p.x + 8, p.y);
 		}
-		context.arc(p.x, p.y, radius, 0, Math.PI * 2, false);
+		context.arc(p.x, p.y, p.radius, 0, Math.PI * 2, false);
 		context.fill();
 	}
 
