@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+        }
+        svg {
+            display: block;
+            margin: 0 auto;
+            width: 50%;
+        }
+        #orbits circle {
+            fill: none;
+            stroke: #223;
+            stroke-width: 1px;
+        }
+        #ganymede {
+            fill: #fff;
+        }
+        #europa {
+            fill: #fff;
+        }
+        #io {
+            fill: #fff;
+        }
+        #jupiter {
+            fill: #fff;
+        }
+    </style>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 650 650">
+        <g id="orbits">
+            <circle id="ganymedeorbit" cx="325" cy="325" r="321"></circle>
+            <circle id="europaorbit" cx="325" cy="325" r="201"></circle>
+            <circle id="ioorbit" cx="325" cy="325" r="126"></circle>
+        </g>
+        <g id="lineGroup" transform="rotate(-90 325 325)"></g>
+        <circle id="ganymede" cx="325" cy="4" r="4"></circle>
+        <circle id="europa" cx="325" cy="526" r="4"></circle>
+        <circle id="io" cx="325" cy="199" r="4"></circle>
+        <circle id="jupiter" cx="325" cy="325" r="12"></circle>
+    </svg>
+    <script>
+        const  rotateDeg = 1, // Make this number smaller for more detail - no lower than .5
+            ganymedeOrbits = 1, // Real value: 1 - Play with these three for fun!
+            europaOrbits = 2, // Real value: 2
+            ioOrbits = 4, // Real value: 4
+            resonance1 = ganymedeOrbits / europaOrbits,
+            resonance2 = ganymedeOrbits / ioOrbits,
+            centre = 325,
+            ganymedeDist = centre - parseInt(ganymede.getAttribute("cy"), 10),
+            europaDist = centre - parseInt(europa.getAttribute("cy"), 10),
+            ioDist = centre - parseInt(io.getAttribute("cy"), 10);
+        let i = 0,
+            orbitals = setInterval(function(){
+                i -= rotateDeg; // Makes rotation CCW
+                ganymede.setAttribute("transform", "rotate("+ i + " " + centre + " " + centre + ")");
+                europa.setAttribute("transform", "rotate("+ i / resonance1 + " " + centre + " " + centre + ")");
+                io.setAttribute("transform", "rotate(" + i / resonance2 + " " + centre + " " + centre + ")");
+                let ganymedeX = Math.cos((i*Math.PI/180)) * ganymedeDist + centre,
+                    ganymedeY = Math.sin((i*Math.PI/180)) * ganymedeDist + centre,
+                    europaX = Math.cos((i/resonance1)*Math.PI/180) * europaDist + centre,
+                    europaY = Math.sin((i/resonance1)*Math.PI/180) * europaDist + centre,
+                    ioX = Math.cos((i/resonance2)*Math.PI/180) * ioDist + centre,
+                    ioY = Math.sin((i/resonance2)*Math.PI/180) * ioDist + centre,
+                    shape = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+                shape.setAttribute('points', ganymedeX + ',' + ganymedeY + ' ' + europaX + ',' + europaY + ' ' + ioX + ',' + ioY);
+                shape.setAttribute('stroke', 'hsla(' + i + ', 50%, 50%, 0.5)');
+                shape.setAttribute('fill', 'none');
+                shape.setAttribute('stroke-width', '0.5px');
+                lineGroup.appendChild(shape);
+                if (-i === (360 * ganymedeOrbits)) {
+                    clearInterval(orbitals);
+                }
+            }, 30);
+    </script>
+</body>
+</html>

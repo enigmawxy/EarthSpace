@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>示例 07.01 - Particles</title>
+
+    <script src="../lib/three.min.js"></script>
+    <script src="../lib/orbit_controls.js"></script>
+    <script src="../lib/dat.gui.js"></script>
+    <script src="../lib/stats.js"></script>
+    <script src="../lib/jQuery.min.js"></script>
+    <style>
+        body {
+            /* 设置 margin 为 0，并且 overflow 为 hidden，来完成页面样式 */
+            margin: 0;
+            overflow: hidden;
+        }
+        /* 统计对象的样式 */
+        #Stats-output {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 用于 WebGL 输出的 Div -->
+<div id="webgl-output"></div>
+<!-- 用于统计 FPS 输出的 Div -->
+<div id="stats-output"></div>
+
+<!-- 运行 Three.js 示例的 Javascript 代码 -->
+<script type="text/javascript">
+
+    var scene;
+    var camera;
+    var render;
+    var webglRender;
+    //var canvasRender;
+    var controls;
+    var stats;
+    var guiParams;
+
+    var particles;
+
+    var ambientLight;
+    var spotLight;
+    var axesHelper;
+    //var cameraHelper;
+
+    $(function() {
+        stats = initStats();
+        scene = new THREE.Scene();
+
+        webglRender = new THREE.WebGLRenderer( {antialias: true, alpha: true} ); // antialias 抗锯齿
+        webglRender.setSize(window.innerWidth, window.innerHeight);
+        webglRender.setClearColor(0x0F0F0F, 1.0); // 0xeeeeee
+        webglRender.shadowMap.enabled = true; // 允许阴影投射
+        render = webglRender;
+
+        camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 2147483647); // 2147483647
+        camera.position.set(0, 0, 200);
+
+        var target = new THREE.Vector3(10, 0 , 0);
+        controls = new THREE.OrbitControls(camera, render.domElement);
+        controls.target = target;
+        camera.lookAt(target);
+
+        $('#webgl-output')[0].appendChild(render.domElement);
+        window.addEventListener('resize', onWindowResize, false);
+
+        // 加入一个坐标轴：X（橙色）、Y（绿色）、Z（蓝色）
+        //axesHelper = new THREE.AxesHelper(60);
+        //scene.add(axesHelper);
+
+        ambientLight = new THREE.AmbientLight(0x0c0c0c);
+        scene.add(ambientLight);
+
+        spotLight = new THREE.SpotLight(0xffffff);
+        spotLight.position.set(0, 260, 230);
+        spotLight.shadow.mapSize.width = 5120; // 必须是 2的幂，默认值为 512
+        spotLight.shadow.mapSize.height = 5120; // 必须是 2的幂，默认值为 512
+        spotLight.castShadow = true;
+        scene.add(spotLight);
+        //cameraHelper = new THREE.CameraHelper(spotLight.shadow.camera);
+        //scene.add(cameraHelper);
+
+        // 创建粒子
+        createParticles();
+
+        /** 用来保存那些需要修改的变量 */
+        guiParams = new function() {
+            this.rotationSpeed = 0.002;
+        };
+        /** 定义 dat.GUI 对象，并绑定 guiParams 的几个属性 */
+        var gui = new dat.GUI();
+        gui.add(guiParams, 'rotationSpeed', 0, 0.02, 0.001);
+
+        renderScene();
+    });
+
+    /** 渲染场景 */
+    function renderScene() {
+        stats.update();
+        rotateMesh(); // 旋转物体
+
+        requestAnimationFrame(renderScene);
+        render.render(scene, camera);
+    }
+
+    /** 初始化 stats 统计对象 */
+    function initStats() {
+        stats = new Stats();
+        stats.setMode(0); // 0 为监测 FPS；1 为监测渲染时间
+        $('#stats-output').append(stats.domElement);
+        return stats;
+    }
+
+    /** 当浏览器窗口大小变化时触发 */
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        render.setSize(window.innerWidth, window.innerHeight);
+    }
+
+    /** 旋转物体 */
+    var step = 0;
+    function rotateMesh() {
+        step += guiParams.rotationSpeed;
+        for (var i = 0; i < scene.children.length; i++) {
+            var mesh = scene.children[i];
+            if (mesh instanceof THREE.Points) {
+                //mesh.rotation.x = i < 4 ? step : -step;
+                mesh.rotation.y = i < 4 ? step : -step;
+                //mesh.rotation.z = i < 4 ? step : -step;
+
+                // 变颜色
+                var h = ( 360 * ( 1.0 + step ) % 360 ) / 360;
+                mesh.material.color.setHSL(h, mesh.material.color.getHSL().s, mesh.material.color.getHSL().l);
+            }
+        };
+    }
+
+    /** 从 Geometry 创建粒子 */
+    function createParticles() {
+        // 每个 Geometry 中模拟5万个点
+        var geometry = new THREE.Geometry();
+        for (var i = 0; i < 50000; i++) {
+            var vertext = new THREE.Vector3(
+                Math.random() * 2000 - 1000,
+                Math.random() * 2000 - 1000,
+                Math.random() * 2000 - 1000
+            );
+            geometry.vertices.push(vertext);
+        }
+
+        var loader = new THREE.TextureLoader();
+        var sprite = loader.load('../examples/textures/sprites/ball.png');
+        var color = [1.0, 0.2, 0.3];
+        var size = 20;
+
+        // 创建粒子
+        var pointsMaterial = new THREE.PointsMaterial( {size: size, map: sprite, depthTest: false, transparent: true, opacity: 1.0, blending: THREE.AdditiveBlending} );
+        pointsMaterial.color.setRGB(color[0], color[1], color[2]);
+        particles = new THREE.Points(geometry, pointsMaterial);
+        particles.rotation.set(Math.random() * 6, Math.random() * 6, Math.random() * 6);
+
+        scene.add(particles);
+    }
+
+</script>
+</body>
+</html>

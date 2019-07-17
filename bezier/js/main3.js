@@ -5,25 +5,37 @@ window.onload = function() {
 		height = canvas.height,
 		p0 = {
 			x: Math.random() * width,
-			y: Math.random() * height
+			y: Math.random() * height,
+			color: 'green',
+			tag: 'start',
+			radius: 3
 		},
 		p1 = {
 			x: Math.random() * width,
-			y: Math.random() * height
+			y: Math.random() * height,
+			color: 'red',
+			tag: 'cp1',
+			radius: 3
 		},
 		p2 = {
 			x: Math.random() * width,
-			y: Math.random() * height
+			y: Math.random() * height,
+			color: 'red',
+			tag: 'cp2',
+			radius: 3
 		},
 		p3 = {
 			x: Math.random() * width,
-			y: Math.random() * height
+			y: Math.random() * height,
+			color: 'green',
+			tag: 'end',
+			radius: 3
 		};
 
-	utils.drawPoint(context, p0,'green', 'start', 3);
-	utils.drawPoint(context, p1,'red', 'cp1', 3);
-	utils.drawPoint(context, p2,'red', 'cp2', 3);
-	utils.drawPoint(context, p3,'green', 'end', 3);
+	utils.drawPoint(context, p0);
+	utils.drawPoint(context, p1);
+	utils.drawPoint(context, p2);
+	utils.drawPoint(context, p3);
 
 	// 绘制三阶贝塞尔曲线
 	context.beginPath();
